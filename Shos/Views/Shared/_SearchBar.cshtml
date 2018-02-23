@@ -1,8 +1,14 @@
 ﻿<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="collapse navbar-collapse" id="navbarColor01">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search...">
+@using (Html.BeginForm("GetItems", "Search", FormMethod.Post, new { @class = "form-inline my-2 my-lg-0" }))
+{
+        @*@Html.BeginForm("GetItems", "Search", new { @class = "form-inline my-2 my-lg-0" })*@@*<form class="form-inline my-2 my-lg-0">*@
+            @*<input class="form-control mr-sm-2" type="text" placeholder="Search...">*@
+    @Html.TextBoxFor(c => c, new { @class = "form-control mr-sm-2", @placeholder="Search.."})
+    @Html.ValidationMessageFor(c => c)
+            @*<p>@Html.ActionLink("Search", "GetItems", "Search", null, new { @class = "btn btn-primary", @type = "submit" })</p>*@
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
+}
+        @*</form>*@
     </div>
     </nav>
