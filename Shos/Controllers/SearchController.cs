@@ -16,7 +16,7 @@ namespace Shos.Controllers
 
         public ActionResult GetItems(String searchString)
         {
-            return View(searchString);
+            return View(searchString as object);
         }
     }
 }
