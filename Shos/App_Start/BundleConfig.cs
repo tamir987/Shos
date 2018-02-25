@@ -25,7 +25,8 @@ namespace Shos
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                      // "~/Content/bootstrap.css",
-                      "~/Content/SearchBar.css"
+                      "~/Content/SearchBar.css",
+                      "~/Content/NavBar.css"
                       //"~/Content/bootstrap.min.css",
                       // "~/Content/bootstrap-theme.css",
                       //  "~/Content/bootstrap-theme.min.css",
