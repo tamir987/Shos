@@ -21,7 +21,7 @@
 <link href="~/Content/NavBar.css" rel="stylesheet">
 
 <div id="nav_wrap">
-    <nav @*role='navigation'*@>
+    <nav role='navigation'>
         @Html.ActionLink("Home", "Index", "Home", new {@id="home", @class="nava" })
         @Html.ActionLink("About", "About", "Home", new { @id = "about", @class = "nava" })
         @Html.ActionLink("Contact Us", "Contact", "Home", new { @id = "contact", @class = "nava" })
@@ -31,10 +31,10 @@
 
 <section id="homesec">
     <div id="mainlogo">
-        LOGO<br />
+        Shos<br />
         <div id="mainsocial">
-            <div class="icon-facebook-sign"></div>
-            <div class="icon-twitter-sign"></div>
+            <div id ="backup" class="fa fa-facebook-square"></div>
+            <div id="backup" class="fa fa-twitter-square"></div>
         </div>
     </div>
 </section><!--/home-->

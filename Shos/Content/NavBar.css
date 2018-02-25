@@ -1,6 +1,6 @@
 ﻿html, body {
     height: 100%;
-    box-sizing: border-box;
+    
 }
 
 h1 {
@@ -23,6 +23,7 @@ section {
 }
 
 #homesec {
+    box-sizing: border-box;
     background: url(http://farm8.staticflickr.com/7129/6962272018_69a32924f9_h.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -59,7 +60,7 @@ nav {
     font-size: 21px;
     text-decoration: none;
     color: #505050;
-    width: 25%;
+    width: 24.5%;
     text-align: center;
     line-height: 65px;
     text-transform: uppercase;
@@ -117,6 +118,7 @@ nav {
 }
 
 #mainlogo {
+    box-sizing: border-box;
     /*box-sizing: border-box;*/
     font-size: 150px;
     color: white;
@@ -137,5 +139,11 @@ nav {
 }
 
 #mainsocial {
-    font-size: 55px;
+    box-sizing: border-box;
+    font-size: 25px;
+}
+
+#backup {
+    text-shadow: 1px 2px 1px #000;
+    box-shadow: 1px 2px 1px #000;
 }
