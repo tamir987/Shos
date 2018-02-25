@@ -24,15 +24,17 @@ namespace Shos
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                     // "~/Content/bootstrap.css",
-                      "~/Content/SearchBar.css",
-                      "~/Content/NavBar.css"
+                "~/Content/font-awesome.css",
+                "~/Content/font-awesome.min.css"
+                      // "~/Content/bootstrap.css"
+                      //"~/Content/SearchBar.css"
+                      //"~/Content/NavBar.css"
                       //"~/Content/bootstrap.min.css",
                       // "~/Content/bootstrap-theme.css",
                       //  "~/Content/bootstrap-theme.min.css",
                       //   "~/Content/bootstrap.cerulean.css",
                       //    "~/Content/bootstrap.cerulean.min.css",
-                      //"~/Content/site.css"
+                      // "~/Content/site.css"
                       ));
         }
     }

@@ -1,9 +1,6 @@
-﻿* {
-    box-sizing: border-box;
-}
-
-html, body {
+﻿html, body {
     height: 100%;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -57,7 +54,7 @@ nav {
     transition: .5s;
 }
 
-nav a {
+.nava {
     display: inline-block;
     font-size: 21px;
     text-decoration: none;
@@ -68,38 +65,26 @@ nav a {
     text-transform: uppercase;
 }
 
-    nav a:nth-child(1) {
+    .nava:nth-child(1) {
         border-top: 5px solid #80BB80;
     }
 
-    nav a:nth-child(2) {
+    .nava:nth-child(2) {
         border-top: 5px solid #9B5E5E;
     }
 
-    nav a:nth-child(3) {
+    .nava:nth-child(3) {
         border-top: 5px solid #5656B3;
     }
 
-    nav a:nth-child(4) {
-        border-top: 5px solid #aaa;
-    }
+.nava:nth-child(4) {
+    border-top: 5px solid black;
+}
 
-    nav a:hover {
+    .nava:hover {
         border-top: 5px solid #4a4a4a;
         transition: .4s;
     }
-
-#test {
-    z-index: 99;
-    background: white;
-    position: fixed;
-    top: 0;
-}
-
-.sticky {
-    position: fixed !important;
-    top: 0;
-}
 
 #logo, #social {
     position: absolute;
@@ -123,6 +108,7 @@ nav a {
 }
 
 #social {
+    /*box-sizing: border-box;*/
     top: -7px;
     right: -150px;
     font-size: 35px;
@@ -131,6 +117,7 @@ nav a {
 }
 
 #mainlogo {
+    /*box-sizing: border-box;*/
     font-size: 150px;
     color: white;
     border: 10px solid white;
@@ -150,52 +137,5 @@ nav a {
 }
 
 #mainsocial {
-    font-size: 35px;
-    line-height: 80px;
-}
-
-.right {
-    position: relative;
-    float: right;
-}
-
-img.right {
-    margin: 0 0 0 40px;
-    border-radius: 200px;
-}
-
-#copy {
-    padding: 20px 80px;
-    font-size: 24px;
-    text-align: justify;
-}
-
-#iconrow {
-    font-size: 130px;
-    text-align: justify;
-    margin-top: 50px;
-    color: #505050;
-}
-
-    #iconrow::after {
-        content: '';
-        display: inline-block;
-        width: 100%;
-    }
-
-.center {
-    text-align: center;
-}
-
-.large {
-    font-size: 45px;
-}
-
-hoverblk {
-    transition: .3;
-}
-
-.hoverblk:hover {
-    color: #5656B3;
-    transition: .3s;
+    font-size: 55px;
 }

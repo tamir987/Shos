@@ -17,29 +17,19 @@
         </div>
     </div>
 </div>*@
-<link href='https://fonts.googleapis.com/css?family=Monda|Ultra' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Monda|Ultra' rel='stylesheet'>
+<link href="~/Content/NavBar.css" rel="stylesheet">
 
 <div id="nav_wrap">
-    <h1 id="logo">LOGO</h1>
-    <nav role='navigation'>
-        <a href="#" id="home">Home</a>
-        <!--
-        --->
-        <a href="#" id="about">About</a>
-        <!--
-        --->
-        <a href="#" id="clients">Clients</a>
-        <!--
-        --->
-        <a href="#" id="contact">Contact Us</a>
+    <nav @*role='navigation'*@>
+        @Html.ActionLink("Home", "Index", "Home", new {@id="home", @class="nava" })
+        @Html.ActionLink("About", "About", "Home", new { @id = "about", @class = "nava" })
+        @Html.ActionLink("Contact Us", "Contact", "Home", new { @id = "contact", @class = "nava" })
+        @Html.ActionLink("Test", "Index", "Home", new { @id = "clientss", @class = "nava" })
     </nav>
-    <div id="social">
-        <div class="icon-facebook-sign"></div>
-        <div class="icon-twitter-sign"></div>
-    </div><!--/social-->
 </div><!--/nav_wrap-->
 
-<section id="homesec" class="">
+<section id="homesec">
     <div id="mainlogo">
         LOGO<br />
         <div id="mainsocial">
@@ -48,6 +38,7 @@
         </div>
     </div>
 </section><!--/home-->
+
 
 
 
