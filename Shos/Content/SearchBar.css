@@ -36,7 +36,7 @@
 .wrapSearch {
     width: 30%;
     position: absolute;
-    top: 50%;
+    top: 21%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
