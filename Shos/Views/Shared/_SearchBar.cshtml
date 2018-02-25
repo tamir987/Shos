@@ -1,12 +1,22 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="collapse navbar-collapse" id="navbarColor01">
-        @using (Html.BeginForm("GetItems", "Search", FormMethod.Post, new { @class = "form-inline my-2 my-lg-0" }))
-        {
+﻿
+@*@using (Html.BeginForm("GetItems", "Search", FormMethod.Post, new { @class = "wrap search" }))
+{
+    @Html.TextBox("searchString", null, new { @class = "searchTerm", @placeholder = "Search.." })
+        
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+}*@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="wrapSearch">
+   <div class="search">
+    @using (Html.BeginForm("GetItems", "Search", FormMethod.Post))
+    {
+        @Html.TextBox("searchString", null, new { @class = "searchTerm", @placeholder = "Search.." })
 
-            @Html.TextBox("searchString", null, new { @class = "form -control mr-sm-2", @placeholder = "Search.." })
-
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        }
-
-    </div>
-</nav>
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+    }
+   </div>
+</div>
