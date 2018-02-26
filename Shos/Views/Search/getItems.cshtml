@@ -3,6 +3,8 @@
     ViewBag.Title = "GetItems";
 }
 
+<link href="~/Content/SearchList.css" rel="stylesheet">
+
 <div id="pattern" class="pattern">
     <ul class="list img-list">
 @foreach (var item in Model)
@@ -12,16 +14,16 @@
                 <div class="li-img">
                     <img src="@item.ItemPictureURL" alt="Image Alt Text" />
                 </div>
+
                 <div class="li-text">
                     <h4 class="li-head">@item.ItemTitle</h4>
                     <p class="li-summary">@item.ItemComments</p>
-                    <p class="li-summary">@item.ItemPrice@item.ItemPriceCorency</p>
+                    <p class="li-summary">@item.ItemPrice @item.ItemPriceCorency</p>
                     <p class="li-summary">@item.ItemShipingPrice</p>
-                    <p class="li-summary">@item.ItemSoldAmount</p>
-                    <p class="li-summary">@item.ItemDeliveryAstimatedDate</p>
                     <p class="li-action">Read More</p>
                 </div>
             </a>
+            
         </li>
 }
 </ul>
