@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models;
+using SearchEngine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +18,9 @@ namespace Shos.Controllers
 
         public ActionResult GetItems(String searchString)
         {
-            return View(searchString as object);
+            List<Item> searchObject = Engine.Search(searchString);
+            // return View(searchString as object);
+            return View(searchObject);
         }
     }
 }
