@@ -5,7 +5,7 @@
 
 <link href="~/Content/SearchList.css" rel="stylesheet">
 
-<div id="pattern" class="pattern">
+@*<div id="pattern" class="pattern">
     <ul class="list img-list">
 @foreach (var item in Model)
 {
@@ -27,4 +27,43 @@
         </li>
 }
 </ul>
-</div>
+</div>*@
+<h1>Title</h1>
+<div class="shopping-cart">
+    <div class="column-labels">
+        <label class="product-image">Image</label>
+        <label class="product-details">Product</label>
+        <label class="product-price">Price</label>
+        <label class="product-shipping">Shipping price</label>
+        <label class="product-link">BUY</label>
+        <label class="product-source">Source</label>
+    </div>
+@foreach (var item in Model)
+{ 
+    <div class="product">
+        <div class="product-image">
+            <img src="@item.ItemPictureURL">
+        </div>
+        <div class="product-details">
+            <div class="product-title">@item.ItemTitle</div>
+            <p class="product-description">@item.ItemComments</p>
+        </div>
+        <div class="product-price">@item.ItemPrice @item.ItemPriceCorency</div>
+        <div class="product-shipping">
+            @item.ItemShipingPrice
+        </div>
+        <div class="product-link">
+            <button href="@item.ItemLink" class="link-product">
+                BUY
+            </button>
+        </div>
+        <div class="product-source">E-BAY</div>
+    </div>
+    }
+
+    </div>
+
+    @section scripts
+{
+        @Scripts.Render("~/bundles/jqueryval")
+    }
