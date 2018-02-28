@@ -103,7 +103,7 @@ label {
         line-height: 1.4em;
     }
 
-    .product .link-product {
+    .product .link-of-product {
         border: 0;
         padding: 4px 8px;
         background-color: #c66;
@@ -113,7 +113,7 @@ label {
         border-radius: 3px;
     }
 
-        .product .link-product:hover {
+        .product .link-of-product:hover {
             background-color: #a44;
         }
 
@@ -164,7 +164,7 @@ label {
     }
 }
 @media screen and (max-width: 350px) {
-    .product-link {
+    .link-of-product {
         float: right;
     }
 
