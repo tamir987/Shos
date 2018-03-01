@@ -4,4 +4,4 @@ Hello World!
 just some testing.
 
 * Erez: I just edit this file.
-* Tamir: Me too.
+* Tamir: I just edit this file.
