@@ -74,7 +74,7 @@ label {
     border-bottom: 1px solid #eee;
 }
 
-.column-labels .product-image, .column-labels .product-details, .product-link {
+.column-labels .product-image, .column-labels .product-details, .column-labels .product-link {
     text-indent: -9999px;
 }
 

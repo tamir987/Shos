@@ -14,37 +14,33 @@
         <label class="product-link">BUY</label>
         <label class="product-source">Source</label>
     </div>
-@foreach (var item in Model)
-{ 
-    <div class="product">
-        <div class="product-image">
-            <img src="@item.ItemPictureURL">
+    @foreach (var item in Model)
+    {
+        <div class="product">
+            <div class="product-image">
+                <img src="@item.ItemPictureURL">
+            </div>
+            <div class="product-details">
+                <div class="product-title">@item.ItemTitle</div>
+                <p class="product-description">@item.ItemComments</p>
+            </div>
+            <div class="product-price">@item.ItemPrice @item.ItemPriceCorency</div>
+            <div class="product-shipping">
+                @item.ItemShipingPrice
+            </div>
+            <div class="product-link">
+                @*<button class="link-of-product">
+                        <i class="fa fa-buysellads"></i>
+                    </button>*@
+
+
+                <button @*onclick="location.href='@item.ItemLink'"*@ class="link-of-product">
+                    BUY
+                </button>
+            </div>
+            <div class="product-source">E-BAY</div>
         </div>
-        <div class="product-details">
-            <div class="product-title">@item.ItemTitle</div>
-            <p class="product-description">@item.ItemComments</p>
-        </div>
-        <div class="product-price">@item.ItemPrice @item.ItemPriceCorency</div>
-        <div class="product-shipping">
-            @item.ItemShipingPrice
-        </div>
-        <div class="product-link">
-                     @*<button class="link-of-product">
-                    <i class="fa fa-buysellads"></i>
-                </button>*@
-                
-     
-            <button @*onclick="location.href='@item.ItemLink'"*@ class="link-of-product">
-                BUY
-            </button>
-     </div>
-        <div class="product-source">E-BAY</div>
-    </div>
     }
 
-    </div>
+</div>
 
-    @section scripts
-{
-        @Scripts.Render("~/bundles/jqueryval")
-    }
