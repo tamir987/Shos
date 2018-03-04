@@ -29,14 +29,12 @@
                 @item.ItemShipingPrice
             </div>
             <div class="product-link">
-                @*<button class="link-of-product">
-                        <i class="fa fa-buysellads"></i>
-                    </button>*@
-
-
-                <button @*onclick="location.href='@item.ItemLink'"*@ class="link-of-product">
-                    BUY
-                </button>
+                <form method="get" action="@item.ItemLink">
+                    <input type="submit" class="link-of-product" />
+                </form>
+                @*<button onclick="location.href='@item.ItemLink'" class="link-of-product">
+                    <i class="fa fa-buysellads"></i>
+                </button>*@
             </div>
             <div class="product-source">E-BAY</div>
         </div>
