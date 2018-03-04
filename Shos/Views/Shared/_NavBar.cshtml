@@ -1,25 +1,17 @@
-﻿@*<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            </ul>
-        </div>
-    </div>
-</div>*@
-<link href='https://fonts.googleapis.com/css?family=Monda|Ultra' rel='stylesheet'>
+﻿<link href='https://fonts.googleapis.com/css?family=Monda|Ultra' rel='stylesheet'>
 <link href="~/Content/NavBar.css" rel="stylesheet">
 
+
+<section id="homesec">
+    <div id="mainlogo">
+        Shos<br />
+        <div id="mainsocial">
+            <div id="backup" class="fa fa-facebook-square"></div>
+            <div id="backup" class="fa fa-twitter-square"></div>
+        </div>
+    </div>
+    @Html.Partial("_SearchBar")
+</section><!--/home-->
 <div id="nav_wrap">
     <nav role='navigation'>
         @Html.ActionLink("Home", "Index", "Home", new {@id="home", @class="nava" })
@@ -28,16 +20,6 @@
         @Html.ActionLink("Test", "Index", "Home", new { @id = "clientss", @class = "nava" })
     </nav>
 </div><!--/nav_wrap-->
-
-<section id="homesec">
-    <div id="mainlogo">
-        Shos<br />
-        <div id="mainsocial">
-            <div id ="backup" class="fa fa-facebook-square"></div>
-            <div id="backup" class="fa fa-twitter-square"></div>
-        </div>
-    </div>
-</section><!--/home-->
 
 
 
