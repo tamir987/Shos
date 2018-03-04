@@ -109,8 +109,9 @@ label {
         background-color: #c66;
         color: #fff;
         font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
-        font-size: 12px;
+        font-size: 22px;
         border-radius: 3px;
+        cursor:pointer;
     }
 
         .product .link-of-product:hover {
