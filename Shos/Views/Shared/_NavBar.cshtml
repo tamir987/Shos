@@ -2,24 +2,37 @@
 <link href="~/Content/NavBar.css" rel="stylesheet">
 
 
-<section id="homesec">
-    <div id="mainlogo">
-        Shos<br />
-        <div id="mainsocial">
-            <div id="backup" class="fa fa-facebook-square"></div>
-            <div id="backup" class="fa fa-twitter-square"></div>
+@*<section id="homesec">
+        <div id="mainlogo">
+            Shos<br />
+            <div id="mainsocial">
+                <div id="backup" class="fa fa-facebook-square"></div>
+                <div id="backup" class="fa fa-twitter-square"></div>
+            </div>
         </div>
-    </div>
-    @Html.Partial("_SearchBar")
-</section><!--/home-->
-<div id="nav_wrap">
-    <nav role='navigation'>
-        @Html.ActionLink("Home", "Index", "Home", new {@id="home", @class="nava" })
-        @Html.ActionLink("About", "About", "Home", new { @id = "about", @class = "nava" })
-        @Html.ActionLink("Contact Us", "Contact", "Home", new { @id = "contact", @class = "nava" })
-        @Html.ActionLink("Test", "Index", "Home", new { @id = "clientss", @class = "nava" })
-    </nav>
-</div><!--/nav_wrap-->
+        @Html.Partial("_SearchBar")
+    </section>*@
+<div class="HomeWrapper">
+    <section class="StartHome">
+        <div class="LogoStart">
+            Shos<br />
+            <div class="SocialStart">
+                <div id="backup" class="fa fa-facebook-square"></div>
+                <div id="backup" class="fa fa-twitter-square"></div>
+            </div>
+            @Html.Partial("_SearchBar")
+        </div>
+        
+    </section>
+    <div class="nav_wrap">
+        <nav role='navigation'>
+            @Html.ActionLink("Home", "Index", "Home", new { @id = "home", @class = "nava" })
+            @Html.ActionLink("About", "About", "Home", new { @id = "about", @class = "nava" })
+            @Html.ActionLink("Contact Us", "Contact", "Home", new { @id = "contact", @class = "nava" })
+            @Html.ActionLink("Test", "Index", "Home", new { @id = "clientss", @class = "nava" })
+        </nav>
+    </div><!--/nav_wrap-->
+</div>
 
 
 

@@ -1,8 +1,8 @@
 ﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <link rel="stylesheet" href="~/Content/SearchBar.css">
 <div class="wrapSearch">
-    <div class="search">
-        @using (Html.BeginForm("GetItems", "Search", FormMethod.Post))
+    @*<div class="search">*@
+        @using (Html.BeginForm("GetItems", "Search", FormMethod.Post, new { @class = "search" }))
         {
             @Html.TextBox("searchString", null, new { @class = "searchTerm", @placeholder = "Search.." })
 
@@ -10,5 +10,5 @@
                 <i class="fa fa-search"></i>
             </button>
         }
-    </div>
+    @*</div>*@
 </div>

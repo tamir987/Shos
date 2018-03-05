@@ -13,6 +13,43 @@ body {
     font-family: helvetica, arial, sans-serif;
 }
 
+.StartHome {
+    box-sizing: border-box;
+    background: url(http://farm8.staticflickr.com/7129/6962272018_69a32924f9_h.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-bottom: 80px;
+}
+
+    .LogoStart {
+        box-sizing: border-box;
+        font-size: 150px;
+        color: white;
+        border: 10px solid white;
+        display: inline-block;
+        padding: 35px;
+        position: absolute;
+        height: 225px;
+        line-height: 100px;
+        top: 50%;
+        margin-top: -180px;
+        left: 50%;
+        width: 600px;
+        text-align: center;
+        margin-left: -300px;
+        text-shadow: 1px 2px 1px #000;
+        box-shadow: 1px 2px 1px #000;
+    }
+    .SocialStart {
+            box-sizing: border-box;
+            font-size: 25px;
+        }
+
+.HomeWrapper {
+    height: 100%;
+    min-height: 250px;
+}
 section {
     height: 100%;
     min-height: 250px;
@@ -31,19 +68,19 @@ section {
     margin-bottom: 80px;
 }
 
-#nav_wrap {
+.nav_wrap {
     background: white;
     width: 100%;
     height: 65px;
     position: absolute;
     bottom: 0;
     overflow: hidden;
-    z-index: 100;
+    /*z-index: 100;*/
     opacity: .9;
     box-shadow: 0px 1px 4px #343434;
 }
 
-nav {
+.nav_wrap nav {
     font-family: 'Monda';
     width: 100%;
     margin: 0 auto;
@@ -55,7 +92,7 @@ nav {
     transition: .5s;
 }
 
-.nava {
+.nav_wrap .nava {
     display: inline-block;
     font-size: 21px;
     text-decoration: none;
@@ -66,23 +103,23 @@ nav {
     text-transform: uppercase;
 }
 
-    .nava:nth-child(1) {
+    .nav_wrap .nava:nth-child(1) {
         border-top: 5px solid #80BB80;
     }
 
-    .nava:nth-child(2) {
+    .nav_wrap .nava:nth-child(2) {
         border-top: 5px solid #9B5E5E;
     }
 
-    .nava:nth-child(3) {
+    .nav_wrap .nava:nth-child(3) {
         border-top: 5px solid #5656B3;
     }
 
-.nava:nth-child(4) {
-    border-top: 5px solid black;
-}
+    .nav_wrap .nava:nth-child(4) {
+        border-top: 5px solid black;
+    }
 
-    .nava:hover {
+    .nav_wrap .nava:hover {
         border-top: 5px solid #4a4a4a;
         transition: .4s;
     }
