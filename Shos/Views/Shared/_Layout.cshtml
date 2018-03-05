@@ -8,8 +8,14 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery");
     @*@Scripts.Render("https://epnt.ebay.com/static/epn-smart-tools.js")*@
+<<<<<<< HEAD
     @Scripts.Render("~/Scripts/EPN.js")
+=======
+    @*@Scripts.Render("~/Scripts/EPN.js")*@
+    <script>window._epn = { campaign: 5338260688 };</script>
+    <script src="https://epnt.ebay.com/static/epn-smart-tools.js"></script>
 
+>>>>>>> c52980d0ba5f812a307ed36f3408c1a9b2b330a7
 </head>
 <body>
 
@@ -24,7 +30,7 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/lib")
+    @*@Scripts.Render("~/bundles/lib")*@
     @RenderSection("scripts", required: false)
 </body>
 </html>
