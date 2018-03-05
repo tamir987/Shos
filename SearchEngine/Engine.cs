@@ -51,7 +51,7 @@ namespace SearchEngine
                         ItemCondition = item.condition.ToString(),
                         ItemLink = item.viewItemURL,
                         ItemProfitableLink = item.viewItemURL,
-                        ItemShipingPrice = item.shippingInfo.shippingType,
+                        ItemShipingPrice = item.shippingInfo.shippingServiceCost.Value.ToString(),
                         ItemShipingToCountry = item.shippingInfo.shipToLocations,
                         ItemSourceCountry = item.location,
                         ItemComments = item.subtitle,

@@ -64,7 +64,7 @@ label {
 }
 
 .shopping-cart {
-    margin-top: -45px;
+    margin-top: 45px;
 }
 
 /* Column headers */
@@ -96,11 +96,14 @@ label {
     .product .product-details .product-title {
         margin-right: 20px;
         font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+        font-style: oblique;
+        text-emphasis-style:triangle;
     }
 
     .product .product-details .product-description {
         margin: 5px 20px 5px 0;
         line-height: 1.4em;
+        text-decoration:wavy;
     }
 
     .product .link-of-product {
@@ -112,6 +115,7 @@ label {
         font-size: 22px;
         border-radius: 3px;
         cursor:pointer;
+        margin: 10%, 10%;
     }
 
         .product .link-of-product:hover {
