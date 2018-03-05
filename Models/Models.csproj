@@ -36,7 +36,6 @@
   <ItemGroup>
     <Compile Include="eSourceSites.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="eSourceSites.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
