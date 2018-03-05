@@ -16,18 +16,24 @@ namespace SearchEngine
             try
             {
                 // Creating an object to the BestMatchService class
-                ConnectToEbay service = new ConnectToEbay();
-                service.Url = "http://svcs.ebay.com/services/search/FindingService/v1";
+                ConnectToEbay service = new ConnectToEbay
+                {
+                    Url = "http://svcs.ebay.com/services/search/FindingService/v1"
+                };
                 // Creating request object for FindBestMatchItemDetailsByKeywords API
-                FindItemsByKeywordsRequest request = new FindItemsByKeywordsRequest();
-                // Setting the required property values
-                request.keywords = i_SearchKeyword;
+                FindItemsByKeywordsRequest request = new FindItemsByKeywordsRequest
+                {
+                    // Setting the required property values
+                    keywords = i_SearchKeyword
+                };
                 // Setting the pagination
-                PaginationInput pagination = new PaginationInput();
-                pagination.entriesPerPageSpecified = true;
-                pagination.entriesPerPage = 25;
-                pagination.pageNumberSpecified = true;
-                pagination.pageNumber = 1;
+                PaginationInput pagination = new PaginationInput
+                {
+                    entriesPerPageSpecified = true,
+                    entriesPerPage = 25,
+                    pageNumberSpecified = true,
+                    pageNumber = 1
+                };
                 request.paginationInput = pagination;
                 // Creating response object
                 FindItemsByKeywordsResponse response = service.findItemsByKeywords(request);
@@ -36,19 +42,23 @@ namespace SearchEngine
                 // Looping through response object for result
                 foreach (SearchItem item in result.item)
                 {
-                    Item itemToAddToList = new Item();
-                    itemToAddToList.ItemID = item.itemId;
-                    itemToAddToList.ItemPictureURL = item.galleryURL;
-                    itemToAddToList.ItemPrice = item.sellingStatus.convertedCurrentPrice.Value.ToString();
-                    itemToAddToList.ItemTitle = item.title;
-                    itemToAddToList.ItemCondition = item.condition.ToString();
-                    itemToAddToList.ItemLink = item.viewItemURL;
-                    itemToAddToList.ItemProfitableLink = item.viewItemURL;
-                    itemToAddToList.ItemShipingPrice = item.shippingInfo.shippingType;
-                    itemToAddToList.ItemShipingToCountry = item.shippingInfo.shipToLocations;
-                    itemToAddToList.ItemSourceCountry = item.location;
-                    itemToAddToList.ItemComments = item.subtitle;
-                    itemToAddToList.ItemPriceCorency = item.shippingInfo.shippingServiceCost.currencyId; ;
+                    Item itemToAddToList = new Models.Item
+                    {
+                        ItemID = item.itemId,
+                        ItemPictureURL = item.galleryURL,
+                        ItemPrice = item.sellingStatus.convertedCurrentPrice.Value.ToString(),
+                        ItemTitle = item.title,
+                        ItemCondition = item.condition.ToString(),
+                        ItemLink = item.viewItemURL,
+                        ItemProfitableLink = item.viewItemURL,
+                        ItemShipingPrice = item.shippingInfo.shippingType,
+                        ItemShipingToCountry = item.shippingInfo.shipToLocations,
+                        ItemSourceCountry = item.location,
+                        ItemComments = item.subtitle,
+                        ItemPriceCorency = item.shippingInfo.shippingServiceCost.currencyId,
+                        ItemSourceWebSite = eSourceSites.eBay
+                    };
+
 
                     itemsList.Add(itemToAddToList);
                 }

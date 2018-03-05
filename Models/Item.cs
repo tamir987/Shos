@@ -35,6 +35,8 @@ namespace Models
 
         public string ItemPriceCorency { get; set; } = string.Empty;
 
+        public eSourceSites ItemSourceWebSite { get; set; } = eSourceSites.Default;
+
         public override string ToString()
         {
             string shipingToCountry = string.Empty;
