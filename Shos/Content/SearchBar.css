@@ -1,10 +1,6 @@
 ﻿.search {
-    width: 70%;
+    width: 100%;
     position: relative;
-}
-
-.search:focus{
-    width:100%;
 }
 
 .searchTerm {
@@ -39,5 +35,6 @@
 /*Resize the wrap to see the search bar change!*/
 .wrapSearch {
     width: 100%;
-    transform: translate(30%, 20%);
+    position:relative;
+    /*transform: translate(50%, 20%);*/
 }
