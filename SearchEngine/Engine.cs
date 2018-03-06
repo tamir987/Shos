@@ -30,6 +30,7 @@ namespace SearchEngine
                     name = ItemFilterType.FreeShippingOnly,
                     value = new string[] {"true"}
                 };
+                // Filtering the items by WorldWide location
                 ItemFilter itemFilteredByWorldWideLocation = new ItemFilter
                 {
                     name = ItemFilterType.LocatedIn,
