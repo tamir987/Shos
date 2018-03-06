@@ -66,7 +66,6 @@ namespace SearchEngine
                         ItemSourceWebSite = eSourceSites.eBay
                     };
 
-
                     itemsList.Add(itemToAddToList);
                 }
             }
