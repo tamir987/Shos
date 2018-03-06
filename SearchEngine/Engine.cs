@@ -3,63 +3,90 @@ using SearchEngine.com.ebay.developer;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 
 namespace SearchEngine
 {
     public class Engine
     {
-        public static List<Item> Search(string i_SearchKeyword)
+        public ConnectToEbay Service { get; set; }
+        public string ServiceURL { get; set; } = "http://svcs.ebay.com/services/search/FindingService/v1";
+        public ItemFilter[] ItemFiltering { get; set; }
+        public PaginationInput PagingManager { get; set; }
+        public FindItemsByKeywordsRequest Request;
+
+        private void connect()
+        {
+            Service = new ConnectToEbay
+            {
+                Url = "http://svcs.ebay.com/services/search/FindingService/v1"
+            };
+        }
+
+        private void filter()
+        {
+            // Filtering the items by Available to Israel
+            ItemFilter itemFilteredByShipping = new ItemFilter
+            {
+                name = ItemFilterType.AvailableTo,
+                value = new string[] { "IL" }
+            };
+            // Filtering the items by Free shipping only
+            ItemFilter itemFilteredByFreeShipping = new ItemFilter
+            {
+                name = ItemFilterType.FreeShippingOnly,
+                value = new string[] { "true" }
+            };
+            // Filtering the items by WorldWide location
+            ItemFilter itemFilteredByWorldWideLocation = new ItemFilter
+            {
+                name = ItemFilterType.LocatedIn,
+                value = new string[] { "WorldWide" }
+            };
+
+            ItemFiltering = new ItemFilter[3];
+            ItemFiltering[0] = itemFilteredByShipping;
+            ItemFiltering[1] = itemFilteredByFreeShipping;
+            ItemFiltering[2] = itemFilteredByWorldWideLocation;
+        }
+
+        private void managePaging()
+        {
+            PagingManager = new PaginationInput
+            {
+                entriesPerPageSpecified = true,
+                entriesPerPage = 250,
+                pageNumberSpecified = true,
+                pageNumber = 1
+            };
+        }
+
+        private void buildRequest(string i_SearchKeyword)
+        {
+            Request = new FindItemsByKeywordsRequest
+            {
+                sortOrderSpecified = true,
+                sortOrder = SortOrderType.BestMatch,
+                // Setting the required property values
+                itemFilter = ItemFiltering,
+                keywords = i_SearchKeyword
+            };
+
+            Request.paginationInput = PagingManager;
+        }
+
+        public List<Item> Search(string i_SearchKeyword)
         {
             List<Item> itemsList = new List<Item>();
+
             try
             {
-                // Creating an object to the BestMatchService class
-                ConnectToEbay service = new ConnectToEbay
-                {
-                    Url = "http://svcs.ebay.com/services/search/FindingService/v1"
-                };
-
-                // Filtering the items by Available to Israel
-                ItemFilter itemFilteredByShipping = new ItemFilter { name = ItemFilterType.AvailableTo,
-                    value = new string[] { "IL" } };
-                // Filtering the items by Free shipping only
-                ItemFilter itemFilteredByFreeShipping = new ItemFilter
-                {
-                    name = ItemFilterType.FreeShippingOnly,
-                    value = new string[] {"true"}
-                };
-                // Filtering the items by WorldWide location
-                ItemFilter itemFilteredByWorldWideLocation = new ItemFilter
-                {
-                    name = ItemFilterType.LocatedIn,
-                    value = new string[] { "WorldWide" }
-                };
-                ItemFilter [] currentItemFilter = new ItemFilter[3];
-                currentItemFilter[0] = itemFilteredByShipping;
-                currentItemFilter[1] = itemFilteredByFreeShipping;
-                currentItemFilter[2] = itemFilteredByWorldWideLocation;
-                // Creating request object for FindBestMatchItemDetailsByKeywords API
-                FindItemsByKeywordsRequest request = new FindItemsByKeywordsRequest
-                {
-                    sortOrderSpecified = true,
-                    sortOrder = SortOrderType.BestMatch,
-                    // Setting the required property values
-                    itemFilter = currentItemFilter,
-                    keywords = i_SearchKeyword
-                };
-                // Setting the pagination
-                PaginationInput pagination = new PaginationInput
-                {
-                    entriesPerPageSpecified = true,
-                    entriesPerPage = 25,
-                    pageNumberSpecified = true,
-                    pageNumber = 1
-                };
-                request.paginationInput = pagination;
+                connect();
+                filter();
+                managePaging();
+                buildRequest(i_SearchKeyword);
+                
                 // Creating response object
-                FindItemsByKeywordsResponse response = service.findItemsByKeywords(request);
+                FindItemsByKeywordsResponse response = Service.findItemsByKeywords(Request);
                 SearchResult result = response.searchResult;
                 Console.WriteLine("Find items results");
                 // Looping through response object for result
