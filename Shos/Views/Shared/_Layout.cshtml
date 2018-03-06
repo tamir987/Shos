@@ -6,14 +6,12 @@
     <title>@ViewBag.Title - Shos - Shopping spree</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery");
-    @*@Scripts.Render("https://epnt.ebay.com/static/epn-smart-tools.js")*@
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Scripts/EPN.js")
 </head>
 <body>
 
     @Html.Partial("_NavBar")
-    @*@Html.Partial("_SearchBar")*@
 
     <div>
         @RenderBody()
