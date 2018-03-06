@@ -78,7 +78,7 @@ namespace SearchEngine
                         ItemShipingToCountry = item.shippingInfo.shipToLocations,
                         ItemSourceCountry = item.location,
                         ItemComments = item.subtitle,
-                        ItemPriceCorency = item.shippingInfo.shippingServiceCost.currencyId,
+                        ItemPriceCorency = item.sellingStatus.currentPrice.currencyId,
                         ItemSourceWebSite = eSourceSites.eBay
                     };
 
