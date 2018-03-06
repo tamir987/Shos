@@ -30,9 +30,15 @@ namespace SearchEngine
                     name = ItemFilterType.FreeShippingOnly,
                     value = new string[] {"true"}
                 };
-                ItemFilter [] currentItemFilter = new ItemFilter[2];
+                ItemFilter itemFilteredByWorldWideLocation = new ItemFilter
+                {
+                    name = ItemFilterType.LocatedIn,
+                    value = new string[] { "WorldWide" }
+                };
+                ItemFilter [] currentItemFilter = new ItemFilter[3];
                 currentItemFilter[0] = itemFilteredByShipping;
                 currentItemFilter[1] = itemFilteredByFreeShipping;
+                currentItemFilter[2] = itemFilteredByWorldWideLocation;
                 // Creating request object for FindBestMatchItemDetailsByKeywords API
                 FindItemsByKeywordsRequest request = new FindItemsByKeywordsRequest
                 {

@@ -18,7 +18,7 @@ namespace SearchEngine
                 HttpWebRequest request = (HttpWebRequest)base.GetWebRequest(uri);
                 request.Headers.Add("X-EBAY-SOA-SECURITY-APPNAME", m_APPID);
                 request.Headers.Add("X-EBAY-SOA-OPERATION-NAME", "findItemsByKeywords");
-                request.Headers.Add("X-EBAY-SOA-GLOBAL-ID", "EBAY-GB");
+                request.Headers.Add("X-EBAY-SOA-GLOBAL-ID", "EBAY-US");
                 return request;
             }
             catch (Exception ex)
