@@ -24,11 +24,20 @@ namespace SearchEngine
                 // Filtering the items by Available to Israel
                 ItemFilter itemFilteredByShipping = new ItemFilter { name = ItemFilterType.AvailableTo,
                     value = new string[] { "IL" } };
-                ItemFilter [] currentItemFilter = new ItemFilter[1];
+                // Filtering the items by Free shipping only
+                ItemFilter itemFilteredByFreeShipping = new ItemFilter
+                {
+                    name = ItemFilterType.FreeShippingOnly,
+                    value = new string[] {"true"}
+                };
+                ItemFilter [] currentItemFilter = new ItemFilter[2];
                 currentItemFilter[0] = itemFilteredByShipping;
+                currentItemFilter[1] = itemFilteredByFreeShipping;
                 // Creating request object for FindBestMatchItemDetailsByKeywords API
                 FindItemsByKeywordsRequest request = new FindItemsByKeywordsRequest
                 {
+                    sortOrderSpecified = true,
+                    sortOrder = SortOrderType.BestMatch,
                     // Setting the required property values
                     itemFilter = currentItemFilter,
                     keywords = i_SearchKeyword
