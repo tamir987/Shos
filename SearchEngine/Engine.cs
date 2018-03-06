@@ -20,10 +20,17 @@ namespace SearchEngine
                 {
                     Url = "http://svcs.ebay.com/services/search/FindingService/v1"
                 };
+
+                // Filtering the items by Available to Israel
+                ItemFilter itemFilteredByShipping = new ItemFilter { name = ItemFilterType.AvailableTo,
+                    value = new string[] { "IL" } };
+                ItemFilter [] currentItemFilter = new ItemFilter[1];
+                currentItemFilter[0] = itemFilteredByShipping;
                 // Creating request object for FindBestMatchItemDetailsByKeywords API
                 FindItemsByKeywordsRequest request = new FindItemsByKeywordsRequest
                 {
                     // Setting the required property values
+                    itemFilter = currentItemFilter,
                     keywords = i_SearchKeyword
                 };
                 // Setting the pagination
