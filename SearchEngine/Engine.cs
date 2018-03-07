@@ -65,6 +65,7 @@ namespace SearchEngine
             Request = new FindItemsByKeywordsRequest
             {
                 sortOrderSpecified = true,
+                affiliate = new Affiliate { networkId = "9", trackingId = "5338260688" },
                 sortOrder = SortOrderType.BestMatch,
                 // Setting the required property values
                 itemFilter = ItemFiltering,
