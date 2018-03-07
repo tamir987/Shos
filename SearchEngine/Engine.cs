@@ -35,7 +35,7 @@ namespace SearchEngine
             ItemFilter itemFilteredByShipping = new ItemFilter
             {
                 name = ItemFilterType.AvailableTo,
-                value = new string[] { "US" }
+                value = new string[] { "IL" }
             };
             // Filtering the items by Free shipping only
             ItemFilter itemFilteredByFreeShipping = new ItemFilter
@@ -99,6 +99,7 @@ namespace SearchEngine
                     ItemComments = item.subtitle,
                     ItemPriceCorency = item.sellingStatus.currentPrice.currencyId,
                     ItemSourceWebSite = eSourceSites.eBay
+                    
                 };
 
                 ItemsList.Add(itemToAddToList);
@@ -126,5 +127,36 @@ namespace SearchEngine
 
             return ItemsList;
         }
+
+        //private void test()
+        //{
+        //    // create a new service
+        //    Shopping svc = new Shopping();
+        //    // set the URL and it's parameters
+        //    // Note: Since this is a demo appid, it is very critical to replace the appid with yours to ensure the proper servicing of your application.
+        //    svc.Url = "http://open.api.ebay.com/shopping?appid=eBayAPID-73f4-45f2-b9a3-c8f6388b38d8&version=523&siteid=0&callname=GetSingleItem&responseencoding=SOAP&requestencoding=SOAP";
+        //    // create a new request type
+        //    GetSingleItemRequestType request = new GetSingleItemRequestType();
+        //    // put in your own item number
+        //    request.ItemID = "280140869222";
+        //    // we will request Details
+        //    // for IncludeSelector reference see
+        //    // http://developer.ebay.com/DevZone/shopping/docs/CallRef/GetSingleItem.html#detailControls
+        //    request.IncludeSelector = "Details";
+        //    // create a new response type
+        //    GetSingleItemResponseType response = new GetSingleItemResponseType();
+        //    try
+        //    {
+        //        // make the call
+        //        response = svc.GetSingleItem(request);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // catch generic exception
+        //        Console.WriteLine(ex.Message);
+        //    }
+        //    // output some of the data
+        //    Console.WriteLine(response.Item.ItemID);
+        //}
     }
 }
