@@ -19,22 +19,23 @@ namespace SearchEngine
         {
             Service = new ConnectToEbay
             {
-                Url = "http://svcs.ebay.com/services/search/FindingService/v1"
+                //Url = "http://svcs.ebay.com/services/search/FindingService/v1"
+                Url = ServiceURL
             };
         }
 
         private void filter()
         {
-            ItemFilter itemFilteredAuthorizedSellerOnly = new ItemFilter
-            {
-                name = ItemFilterType.AuthorizedSellerOnly,
-                value = new string[] { "true" }
-            };
+            //ItemFilter itemFilteredAuthorizedSellerOnly = new ItemFilter
+            //{
+            //    name = ItemFilterType.AuthorizedSellerOnly,
+            //    value = new string[] { "true" }
+            //};
             // Filtering the items by Available to Israel
             ItemFilter itemFilteredByShipping = new ItemFilter
             {
                 name = ItemFilterType.AvailableTo,
-                value = new string[] { "IL" }
+                value = new string[] { "US" }
             };
             // Filtering the items by Free shipping only
             ItemFilter itemFilteredByFreeShipping = new ItemFilter
@@ -54,7 +55,7 @@ namespace SearchEngine
             PagingManager = new PaginationInput
             {
                 entriesPerPageSpecified = true,
-                entriesPerPage = 250,
+                entriesPerPage = 25,
                 pageNumberSpecified = true,
                 pageNumber = 1
             };
@@ -64,8 +65,10 @@ namespace SearchEngine
         {
             Request = new FindItemsByKeywordsRequest
             {
+                //affiliate attribute
+                //affiliate = new Affiliate { networkId = "9", trackingId = "5338260688" },
+                // Sorting properties
                 sortOrderSpecified = true,
-                affiliate = new Affiliate { networkId = "9", trackingId = "5338260688" },
                 sortOrder = SortOrderType.BestMatch,
                 // Setting the required property values
                 itemFilter = ItemFiltering,
