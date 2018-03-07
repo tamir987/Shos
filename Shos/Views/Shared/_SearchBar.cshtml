@@ -4,7 +4,7 @@
     @*<div class="search">*@
         @using (Html.BeginForm("GetItems", "Search", FormMethod.Post, new { @class = "search" }))
         {
-            @Html.TextBox("searchString", null, new { @class = "searchTerm", @placeholder = "Search.." })
+            @Html.TextBox("searchString", null, new { @class = "searchTerm", @placeholder = "Search..", id = "searchBar" })
 
             <button type="submit" class="searchButton">
                 <i class="fa fa-search"></i>
