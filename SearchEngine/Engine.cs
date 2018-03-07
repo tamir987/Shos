@@ -25,6 +25,11 @@ namespace SearchEngine
 
         private void filter()
         {
+            ItemFilter itemFilteredAuthorizedSellerOnly = new ItemFilter
+            {
+                name = ItemFilterType.AuthorizedSellerOnly,
+                value = new string[] { "true" }
+            };
             // Filtering the items by Available to Israel
             ItemFilter itemFilteredByShipping = new ItemFilter
             {
@@ -37,17 +42,11 @@ namespace SearchEngine
                 name = ItemFilterType.FreeShippingOnly,
                 value = new string[] { "true" }
             };
-            // Filtering the items by WorldWide location
-            ItemFilter itemFilteredByWorldWideLocation = new ItemFilter
-            {
-                name = ItemFilterType.LocatedIn,
-                value = new string[] { "WorldWide" }
-            };
 
-            ItemFiltering = new ItemFilter[3];
+            ItemFiltering = new ItemFilter[2];
             ItemFiltering[0] = itemFilteredByShipping;
             ItemFiltering[1] = itemFilteredByFreeShipping;
-            ItemFiltering[2] = itemFilteredByWorldWideLocation;
+            //ItemFiltering[2] = itemFilteredByWorldWideLocation;
         }
 
         private void managePaging()
