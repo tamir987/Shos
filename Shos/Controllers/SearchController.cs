@@ -18,7 +18,8 @@ namespace Shos.Controllers
 
         public ActionResult GetItems(String searchString)
         {
-            List<Item> searchObject = Engine.Search(searchString);
+            Engine searchEngine = new Engine();
+            List<Item> searchObject = searchEngine.Search(searchString);
             return View(searchObject);
         }
     }
