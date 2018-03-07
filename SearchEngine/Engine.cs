@@ -19,18 +19,12 @@ namespace SearchEngine
         {
             Service = new ConnectToEbay
             {
-                //Url = "http://svcs.ebay.com/services/search/FindingService/v1"
                 Url = ServiceURL
             };
         }
 
         private void filter()
         {
-            //ItemFilter itemFilteredAuthorizedSellerOnly = new ItemFilter
-            //{
-            //    name = ItemFilterType.AuthorizedSellerOnly,
-            //    value = new string[] { "true" }
-            //};
             // Filtering the items by Available to Israel
             ItemFilter itemFilteredByShipping = new ItemFilter
             {
@@ -47,7 +41,6 @@ namespace SearchEngine
             ItemFiltering = new ItemFilter[2];
             ItemFiltering[0] = itemFilteredByShipping;
             ItemFiltering[1] = itemFilteredByFreeShipping;
-            //ItemFiltering[2] = itemFilteredByWorldWideLocation;
         }
 
         private void managePaging()
