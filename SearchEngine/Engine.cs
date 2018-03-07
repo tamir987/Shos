@@ -35,7 +35,7 @@ namespace SearchEngine
             ItemFilter itemFilteredByShipping = new ItemFilter
             {
                 name = ItemFilterType.AvailableTo,
-                value = new string[] { "US" }
+                value = new string[] { "IL" }
             };
             // Filtering the items by Free shipping only
             ItemFilter itemFilteredByFreeShipping = new ItemFilter
