@@ -2,7 +2,11 @@
 using SearchEngine.com.ebay.developer;
 using System;
 using System.Collections.Generic;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
+using System.Net;
 using System.Diagnostics;
+using System.IO;
 
 namespace SearchEngine
 {
@@ -35,7 +39,7 @@ namespace SearchEngine
             ItemFilter itemFilteredByFreeShipping = new ItemFilter
             {
                 name = ItemFilterType.FreeShippingOnly,
-                value = new string[] { "true" }
+                value = new string[] { "false" }
             };
 
             ItemFiltering = new ItemFilter[2];
@@ -48,9 +52,9 @@ namespace SearchEngine
             PagingManager = new PaginationInput
             {
                 entriesPerPageSpecified = true,
-                entriesPerPage = 25,
+                entriesPerPage = 100,
                 pageNumberSpecified = true,
-                pageNumber = 1
+                pageNumber = 10
             };
         }
 
@@ -58,8 +62,6 @@ namespace SearchEngine
         {
             Request = new FindItemsByKeywordsRequest
             {
-                //affiliate attribute
-                //affiliate = new Affiliate { networkId = "9", trackingId = "5338260688" },
                 // Sorting properties
                 sortOrderSpecified = true,
                 sortOrder = SortOrderType.BestMatch,
@@ -77,7 +79,7 @@ namespace SearchEngine
 
             foreach (SearchItem item in i_Result.item)
             {
-                Item itemToAddToList = new Models.Item
+                Item itemToAddToList = new Item
                 {
                     ItemID = item.itemId,
                     ItemPictureURL = item.galleryURL,
@@ -92,7 +94,6 @@ namespace SearchEngine
                     ItemComments = item.subtitle,
                     ItemPriceCorency = item.sellingStatus.currentPrice.currencyId,
                     ItemSourceWebSite = eSourceSites.eBay
-                    
                 };
 
                 ItemsList.Add(itemToAddToList);
@@ -121,35 +122,70 @@ namespace SearchEngine
             return ItemsList;
         }
 
-        //private void test()
-        //{
-        //    // create a new service
-        //    Shopping svc = new Shopping();
-        //    // set the URL and it's parameters
-        //    // Note: Since this is a demo appid, it is very critical to replace the appid with yours to ensure the proper servicing of your application.
-        //    svc.Url = "http://open.api.ebay.com/shopping?appid=eBayAPID-73f4-45f2-b9a3-c8f6388b38d8&version=523&siteid=0&callname=GetSingleItem&responseencoding=SOAP&requestencoding=SOAP";
-        //    // create a new request type
-        //    GetSingleItemRequestType request = new GetSingleItemRequestType();
-        //    // put in your own item number
-        //    request.ItemID = "280140869222";
-        //    // we will request Details
-        //    // for IncludeSelector reference see
-        //    // http://developer.ebay.com/DevZone/shopping/docs/CallRef/GetSingleItem.html#detailControls
-        //    request.IncludeSelector = "Details";
-        //    // create a new response type
-        //    GetSingleItemResponseType response = new GetSingleItemResponseType();
-        //    try
-        //    {
-        //        // make the call
-        //        response = svc.GetSingleItem(request);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // catch generic exception
-        //        Console.WriteLine(ex.Message);
-        //    }
-        //    // output some of the data
-        //    Console.WriteLine(response.Item.ItemID);
-        //}
+        public List<Item> Search2(string i_SearchKeyword)
+        {
+            try
+            {
+                connect();
+                filter();
+                managePaging();
+
+                FindCompletedItemsRequest Request = new FindCompletedItemsRequest
+                {
+                    // Sorting properties
+                    sortOrderSpecified = true,
+                    sortOrder = SortOrderType.BestMatch,
+                    // Setting the required property values
+                    itemFilter = ItemFiltering,
+                    keywords = i_SearchKeyword,
+                };
+
+                Request.paginationInput = PagingManager;
+
+                FindCompletedItemsResponse response = Service.findCompletedItems(Request);
+                SearchResult result = response.searchResult;
+                // Looping through response object for result
+                setList(result);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("* Error: " + ex.Message);
+            }
+
+            return ItemsList;
+        }
+
+        public List<Item> Search3(string i_SearchKeyword)
+        {
+            try
+            {
+                ConnectToEbay service = new ConnectToEbay
+                {
+                    Url = "http://svcs.sandbox.ebay.com/services/search/FindingService/v1"
+                };
+
+                filter();
+                managePaging();
+                FindItemsAdvancedRequest request = new FindItemsAdvancedRequest
+                {
+                    // Sorting properties
+                    sortOrderSpecified = true,
+                    sortOrder = SortOrderType.BestMatch,
+                    // Setting the required property values
+                    itemFilter = ItemFiltering,
+                    keywords = i_SearchKeyword,
+                    paginationInput = PagingManager
+                };
+
+                FindItemsAdvancedResponse response = service.findItemsAdvanced(request);
+                setList(response.searchResult);
+            }
+            catch(Exception e)
+            {
+                Debug.Print(e.StackTrace);
+            }
+
+            return ItemsList;
+        }     
     }
 }

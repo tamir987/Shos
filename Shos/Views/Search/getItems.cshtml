@@ -13,25 +13,32 @@
         <label class="product-link">BUY</label>
         <label class="product-source">Source</label>
     </div>
-    @foreach (var item in Model)
+    @if (Model != null)
     {
-    <div class="product">
-        <div class="product-image">
-            <img src="@item.ItemPictureURL">
-        </div>
-        <div class="product-details">
-            <div class="product-title">@item.ItemTitle</div>
-            <p class="product-description">@item.ItemComments</p>
-        </div>
-        <div class="product-price">@item.ItemPrice @item.ItemPriceCorency</div>
-        <div class="product-shipping">
-            @item.ItemShipingPrice @item.ItemPriceCorency
-        </div>
-        <div class="product-link">
-            <a href="@item.ItemLink" target="_blank" type="button" class="link-of-product"><i class="fa fa-external-link-square"></i></a>
-        </div>
-        <div class="product-source">@item.ItemSourceWebSite</div>
-    </div>
+        foreach (var item in Model)
+        {
+            <div class="product">
+                <div class="product-image">
+                    <img src="@item.ItemPictureURL">
+                </div>
+                <div class="product-details">
+                    <div class="product-title">@item.ItemTitle</div>
+                    <p class="product-description">@item.ItemComments</p>
+                </div>
+                <div class="product-price">@item.ItemPrice @item.ItemPriceCorency</div>
+                <div class="product-shipping">
+                    @item.ItemShipingPrice @item.ItemPriceCorency
+                </div>
+                <div class="product-link">
+                    <a href="@item.ItemLink" target="_blank" type="button" class="link-of-product"><i class="fa fa-external-link-square"></i></a>
+                </div>
+                <div class="product-source">@item.ItemSourceWebSite</div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>NO ITEMS WAS FOUND</p>
     }
 
 </div>

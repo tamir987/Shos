@@ -5,5 +5,8 @@
     <Setting Name="SearchEngine_com_ebay_developer_FindingService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://svcs.ebay.com/services/search/FindingService/v1</Value>
     </Setting>
+    <Setting Name="SearchEngine_com_ebay_developer1_FeedbackService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://svcs.ebay.com/FeedbackService</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

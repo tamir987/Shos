@@ -32,5 +32,15 @@ namespace SearchEngine.Properties {
                 return ((string)(this["SearchEngine_com_ebay_developer_FindingService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://svcs.ebay.com/FeedbackService")]
+        public string SearchEngine_com_ebay_developer1_FeedbackService {
+            get {
+                return ((string)(this["SearchEngine_com_ebay_developer1_FeedbackService"]));
+            }
+        }
     }
 }
