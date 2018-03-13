@@ -45,6 +45,9 @@
     <Reference Include="eBay.Service, Version=3.805.0.0, Culture=neutral, PublicKeyToken=1d9d786a5932eaf0, processorArchitecture=MSIL">
       <HintPath>..\packages\eBaySDK.3.805.0\lib\net20\eBay.Service.dll</HintPath>
     </Reference>
+    <Reference Include="IDH.CallAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IDH.CallAPI.1.0.0\lib\IDH.CallAPI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
