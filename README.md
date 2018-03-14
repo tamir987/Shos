@@ -2,7 +2,7 @@
 
 Hello World!
 
-* just some testing./
+* just some testing.
 
 * Erez: I just edit this file.
 * Tamir: I just edit this file.
